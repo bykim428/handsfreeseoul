@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hands Free Seoul</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: #f8f9fa;
+            display: flex;
+            justify-content: center;
+        }
+        /* Mobile-optimized container for QR access */
+        .container {
+            width: 100%;
+            max-width: 480px;
+            min-height: 100vh;
+            background-color: #ffffff;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        /* Common style for images and video */
+        .media-item {
+            width: 100%;
+            display: block;
+        }
+        video.media-item {
+            height: auto;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <img src="image1.jpg" alt="Hands Free Seoul Image 1" class="media-item">
+
+        <img src="image2.jpg" alt="Hands Free Seoul Image 2" class="media-item">
+
+        <img src="image3.jpg" alt="Hands Free Seoul Image 3" class="media-item">
+
+        <video src="video.mp4" class="media-item" controls autoplay muted loop playsinline></video>
+
+        <img src="image4.jpg" alt="Hands Free Seoul Image 4" class="media-item">
+    </div>
+
+</body>
+</html>
