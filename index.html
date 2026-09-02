@@ -23,6 +23,38 @@
             min-height: 100vh;
             background-color: #ffffff;
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            position: relative;
+        }
+        /* Language Selector Bar (Sticky Top) */
+        .lang-bar {
+            position: sticky;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(5px);
+            display: flex;
+            justify-content: flex-end;
+            padding: 10px 15px;
+            gap: 6px;
+            border-bottom: 1px solid #eee;
+            z-index: 100;
+        }
+        .lang-btn {
+            background: none;
+            border: 1px solid #ccc;
+            padding: 5px 10px;
+            font-size: 12px;
+            font-weight: bold;
+            border-radius: 4px;
+            cursor: pointer;
+            color: #555;
+            transition: all 0.2s;
+        }
+        .lang-btn.active {
+            background-color: #000;
+            color: #fff;
+            border-color: #000;
         }
         /* Common style for images and video */
         .media-item {
@@ -38,21 +70,47 @@
 <body>
 
     <div class="container">
-        <!-- 1st: Image 1 (.png) -->
-        <img src="image1.png" alt="Hands Free Seoul Image 1" class="media-item">
+        <!-- Language Switcher Bar (EN, KR, CH) -->
+        <div class="lang-bar">
+            <button class="lang-btn active" id="btn-en" onclick="switchLang('en')">EN</button>
+            <button class="lang-btn" id="btn-kr" onclick="switchLang('kr')">KR</button>
+            <button class="lang-btn" id="btn-ch" onclick="switchLang('ch')">CH</button>
+        </div>
 
-        <!-- 2nd: Image 2 (.png) -->
-        <img src="image2.png" alt="Hands Free Seoul Image 2" class="media-item">
+        <!-- 1st: Image 1 -->
+        <img id="img1" src="image1_en.png" alt="Hands Free Seoul Image 1" class="media-item">
 
-        <!-- 3rd: Image 3 (.png) -->
-        <img src="image3.png" alt="Hands Free Seoul Image 3" class="media-item">
+        <!-- 2nd: Image 2 -->
+        <img id="img2" src="image2_en.png" alt="Hands Free Seoul Image 2" class="media-item">
+
+        <!-- 3rd: Image 3 -->
+        <img id="img3" src="image3_en.png" alt="Hands Free Seoul Image 3" class="media-item">
 
         <!-- 4th: Video (Autoplay, Muted, Loop, Playsinline for mobile) -->
         <video src="video.mp4" class="media-item" controls autoplay muted loop playsinline></video>
 
-        <!-- 5th: Image 4 (.png) -->
-        <img src="image4.png" alt="Hands Free Seoul Image 4" class="media-item">
+        <!-- 5th: Image 4 -->
+        <img id="img4" src="image4_en.png" alt="Hands Free Seoul Image 4" class="media-item">
+
+        <!-- 6th: Image 5 -->
+        <img id="img5" src="image5_en.png" alt="Hands Free Seoul Image 5" class="media-item">
     </div>
 
+    <script>
+        function switchLang(lang) {
+            // Remove active class from all buttons
+            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+            
+            // Add active class to the clicked button
+            document.getElementById('btn-' + lang).classList.add('active');
+
+            // Change image sources based on selected language
+            document.getElementById('img1').src = 'image1_' + lang + '.png';
+            document.getElementById('img2').src = 'image2_' + lang + '.png';
+            document.getElementById('img3').src = 'image3_' + lang + '.png';
+            document.getElementById('img4').src = 'image4_' + lang + '.png';
+            document.getElementById('img5').src = 'image5_' + lang + '.png';
+        }
+    </script>
 </body>
 </html>
